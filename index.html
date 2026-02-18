@@ -34,6 +34,11 @@
           return;
         }
 
+        // Check for http/https and prepend https if missing
+        if (!userUrl.startsWith("http://") && !userUrl.startsWith("https://")) {
+          userUrl = "https://" + userUrl;
+        }
+
         // Ensure the URL ends with a slash
         if (!userUrl.endsWith("/")) {
           userUrl += "/";
@@ -70,7 +75,7 @@
         });
       }
     </script>
-    
+     
     <br>
     <h2>If you have a custom URL that you'd like the password reset token to be sent to, enter it below.</h2>
 
